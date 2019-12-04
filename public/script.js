@@ -16,6 +16,9 @@ const cardsArray = [
 
 // Element selector
 const container = document.querySelector('.container');
+const duplicatedArray = cardsArray.concat(cardsArray);
+
+
 
 
 
@@ -43,7 +46,6 @@ const createBackCard = (colorFlipped) => {
 
 // loop through the array of cards and spits out createCard function with cardsArray
 const generateCards = () => {
-	const duplicatedArray = cardsArray.concat(cardsArray);
   duplicatedArray.forEach(item => {
 		const card = createCard(item.id);
 		const frontCard = createFrontCard(item.color);
@@ -77,7 +79,7 @@ function flipCard() {
 	}
 	secondCard = this;
 	 hasFlippedCard = false;
-	 console.log(secondCard);
+
 
 
    checkForMatch();
@@ -102,9 +104,25 @@ function unflipCards() {
 		firstCard.classList.remove('flipped');
 		secondCard.classList.remove('flipped');
 	}, 1000);
+
+	(function suffle(){
+		clickCards.forEach(card => {
+
+
+
+			let suffleCards = Math.floor(Math.random() * duplicatedArray.length);
+			card.style.order = suffleCards;
+			console.log(card);
+
+
+		})
+
+	 })
 }
 
  clickCards.forEach(card => card.addEventListener('click', flipCard));
+
+
 
 
 // clickCards.forEach(item => {
