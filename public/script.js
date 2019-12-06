@@ -87,12 +87,13 @@ let counter = 0;
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
-
+let executed = false;
 
 
 
 
 function flipCard() {
+	startClock();
 
 	if (lockBoard) return;
 	 if (this === firstCard) return;
@@ -116,6 +117,32 @@ function flipCard() {
 		checkForMatch();
 
  }
+
+ const startClock = (function() {
+
+
+
+
+
+		if (!executed) {
+			executed = true;
+			let sec = 0;
+			function pad ( val ) { return val > 9 ? val : "0" + val; };
+
+			 setInterval( () => {
+				document.getElementById("seconds").innerHTML=pad(++sec%60);
+				document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
+		}, 1000);
+	} else{
+		return;
+	}
+	}
+
+	);
+
+
+
+
 
  function checkForMatch() {
 	if (firstCard.dataset.cardId === secondCard.dataset.cardId) {
@@ -152,10 +179,9 @@ function unflipCards() {
 
 		resetBoard();
 	}, 1000);
-
-
-
 }
+
+
 
 function resetBoard() {
 	[hasFlippedCard, lockBoard] = [false, false];
@@ -170,30 +196,7 @@ function resetBoard() {
 
 
 
-//  const startClock = (function() {
 
-// 	console.log('hello');
-
-// 		let executed = false;
-
-
-// 		return function() {
-// 		if (executed) {
-// 			executed = true;
-// 			let sec = 0;
-// 			function pad ( val ) { return val > 9 ? val : "0" + val; };
-
-// 			 setInterval( () => {
-// 				document.getElementById("seconds").innerHTML=pad(++sec%60);
-// 				document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
-// 		}, 1000);
-// 	} else{
-// 		return;
-// 	}
-// 	}
-
-
-// 	});
 
 
 
