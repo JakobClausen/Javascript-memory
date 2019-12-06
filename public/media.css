@@ -1,0 +1,42 @@
+
+
+@media only screen and (max-height: 830px) {
+	.container {
+
+		grid-template-rows: repeat(3, 233px);
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.container {
+
+		grid-template-rows: repeat(3, 289px);
+	}
+
+}
+
+@media only screen and (max-height: 1000px) {
+	.container {
+
+		grid-template-rows: repeat(3, 278px);
+
+
+	}
+
+	.front img{
+		width: 150px;
+
+	}
+
+
+	.card__item,
+	.back img,
+	.card__item div{
+		width: 150px;
+		height: 208px;
+
+	}
+
+
+
+}
