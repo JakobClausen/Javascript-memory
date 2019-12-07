@@ -82,27 +82,26 @@ let clickCards = document.querySelectorAll('.card__item');
 let cardFront = document.querySelectorAll('.front');
 let cardBack = document.querySelectorAll('.back');
 let counterDiv = document.querySelector('.points');
-
+let matches = 0;
 let counter = 0;
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let executed = false;
+let timer;
+let sec = 0;
+let min = 0;
+let hour = 0;
 
 
 
 
 function flipCard() {
-	startClock();
-
 	if (lockBoard) return;
 	 if (this === firstCard) return;
+	 startTimer()
 
 	this.classList.add('flipped');
-
-
-
-
 
 	if (!hasFlippedCard) {
 		hasFlippedCard = true;
@@ -118,27 +117,63 @@ function flipCard() {
 
  }
 
- const startClock = (function() {
+ function startTimer(matches) {
+	 if (!executed) {
+		executed = true;
+		timer = setInterval(timerHandeler, 1000);
+
+	 }else if (matches === cardsArray.length){
+		 timer = clearInterval(timer);
 
 
 
 
 
-		if (!executed) {
-			executed = true;
-			let sec = 0;
-			function pad ( val ) { return val > 9 ? val : "0" + val; };
+	 }
 
-			 setInterval( () => {
-				document.getElementById("seconds").innerHTML=pad(++sec%60);
-				document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
-		}, 1000);
-	} else{
-		return;
+
+
+ }
+
+function timerHandeler () {
+	sec++;
+	if (sec == 60) {
+		sec = 0;
+		min++
 	}
+	if (min == 60) {
+		min = 0;
+		hour++;
+	}
+	displayTime();
+
+}
+
+function displayTime () {
+	let emptySec;
+	let emptyMin;
+	let seconds = document.getElementById("seconds")
+	let minutes = document.getElementById("minutes")
+
+	if (sec < 10 ) {
+		emptySec = "0"+sec
+	}else {
+		emptySec =sec
 	}
 
-	);
+	if (min < 10 ) {
+		emptyMin = "0"+min
+	}else {
+		emptyMin = min;
+	}
+
+
+		seconds.innerHTML = emptySec;
+		minutes.innerHTML = emptyMin;
+
+
+	}
+
 
 
 
@@ -146,8 +181,12 @@ function flipCard() {
 
  function checkForMatch() {
 	if (firstCard.dataset.cardId === secondCard.dataset.cardId) {
+		matches++;
 		disableCards();
 		pointsCounter()
+		startTimer(matches)
+
+
 		return;
 	}
 
@@ -157,18 +196,35 @@ function flipCard() {
 
 }
 
+
+
+
+
+
 function disableCards() {
 	firstCard.removeEventListener('click', flipCard);
 	secondCard.removeEventListener('click', flipCard);
 	resetBoard();
 }
 
+
+
+
+
+
 function pointsCounter(){
 	setTimeout(() => {
 		counter++;
 	counterDiv.innerHTML = counter;
 	}, 1000);
+
 }
+
+
+
+
+
+
 
 
 function unflipCards() {
@@ -180,6 +236,10 @@ function unflipCards() {
 		resetBoard();
 	}, 1000);
 }
+
+
+
+
 
 
 
@@ -196,6 +256,29 @@ function resetBoard() {
 
 
 
+
+
+//  const startClock = (function() {
+
+
+
+
+
+// 	if (!executed) {
+// 		executed = true;
+// 		let sec = 0;
+// 		function pad ( val ) { return val > 9 ? val : "0" + val; };
+
+// 		 setInterval( () => {
+// 			document.getElementById("seconds").innerHTML=pad(++sec%60);
+// 			document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
+// 	}, 1000);
+// } else{
+// 	return;
+// }
+// }
+
+// );
 
 
 
