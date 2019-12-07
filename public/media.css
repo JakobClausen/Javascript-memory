@@ -1,21 +1,13 @@
 
-
-@media only screen and (max-height: 830px) {
+@media only screen and (min-width: 900px) {
 	.container {
 
-		grid-template-rows: repeat(3, 233px);
-	}
-}
-
-@media only screen and (max-width: 900px) {
-	.container {
-
-		grid-template-rows: repeat(3, 289px);
+		grid-template-rows: repeat(3, 220px);
 	}
 
 }
 
-@media only screen and (max-height: 1000px) {
+ @media only screen and (min-width: 1500px) {
 	.container {
 
 		grid-template-rows: repeat(3, 278px);
