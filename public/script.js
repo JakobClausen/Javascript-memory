@@ -13,6 +13,7 @@ const cardsArray = [
 
 ];
 
+
 // Element selector
 const container = document.querySelector('.container');
 const duplicatedArray = cardsArray.concat(cardsArray);
@@ -41,8 +42,6 @@ const createBackCard = (imgFlipped) => {
   return `<div class="back"><img src="${imgFlipped}"></div>`;
 };
 
-
-// loop through the array of cards and spits out createCard function with cardsArray
 
 	// Shuffles the cards
 const shuffle = (array) => {
@@ -77,31 +76,39 @@ generateCards();
 
 
 
-
+// Element selector
 let clickCards = document.querySelectorAll('.card__item');
 let cardFront = document.querySelectorAll('.front');
 let cardBack = document.querySelectorAll('.back');
 let counterDiv = document.querySelector('.points');
 
+// varibles
 let counter = 0;
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let executed = false;
+let matches = 0;
+let sec = 0;
+let stopClock = 0;
+
+
+
+
+
+
 
 
 
 
 function flipCard() {
+
 	startClock();
 
 	if (lockBoard) return;
 	 if (this === firstCard) return;
 
 	this.classList.add('flipped');
-
-
-
 
 
 	if (!hasFlippedCard) {
@@ -118,28 +125,44 @@ function flipCard() {
 
  }
 
+
+
  const startClock = (function() {
-
-
-
-
+	function pad ( val ) { return val > 9 ? val : "0" + val; };
 
 		if (!executed) {
 			executed = true;
-			let sec = 0;
-			function pad ( val ) { return val > 9 ? val : "0" + val; };
 
-			 setInterval( () => {
-				document.getElementById("seconds").innerHTML=pad(++sec%60);
-				document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
+			stopClock = setInterval( () => {
+				let jakob = pad(++sec%60);
+				let fridmar = pad(parseInt(sec/60,10));
+
+				document.getElementById("seconds").innerHTML=jakob;
+				document.getElementById("minutes").innerHTML=fridmar;
 		}, 1000);
-	} else{
+	}else{
+		console.log(stopClock);
+
 		return;
 	}
+
+
+
+
 	}
 
 	);
 
+
+
+	const stopTime = () => {
+		if (matches === 1) {
+		   executed = false;
+		   clearInterval(startClock);
+		}else {
+			return;
+		}
+	}
 
 
 
@@ -148,11 +171,15 @@ function flipCard() {
 	if (firstCard.dataset.cardId === secondCard.dataset.cardId) {
 		disableCards();
 		pointsCounter()
+		stopTime();
+		matches++;
+
 		return;
 	}
 
 	unflipCards();
 	pointsCounter()
+	stopTime();
 
 
 }
@@ -163,14 +190,20 @@ function disableCards() {
 	resetBoard();
 }
 
+//count the points
 function pointsCounter(){
+
+
 	setTimeout(() => {
 		counter++;
-	counterDiv.innerHTML = counter;
+		let formattedNumber = ("0" + counter).slice(-2);
+	counterDiv.innerHTML = formattedNumber;
 	}, 1000);
+
+
 }
 
-
+// unflips the cards
 function unflipCards() {
 	lockBoard = true;
 	setTimeout(() => {
@@ -183,6 +216,7 @@ function unflipCards() {
 
 
 
+// resets borad
 function resetBoard() {
 	[hasFlippedCard, lockBoard] = [false, false];
 	[firstCard, secondCard] = [null, null];
@@ -190,7 +224,6 @@ function resetBoard() {
 
 
  clickCards.forEach(card => card.addEventListener('click', flipCard));
-
 
 
 
