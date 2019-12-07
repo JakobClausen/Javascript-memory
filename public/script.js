@@ -42,8 +42,17 @@ const createBackCard = (imgFlipped) => {
 };
 
 
-// loop through the array of cards and spits out createCard function with cardsArray
 
+
+
+
+
+
+
+
+
+
+function startGame() {
 	// Shuffles the cards
 const shuffle = (array) => {
   let currentIndex = array.length;
@@ -75,9 +84,10 @@ const generateCards = () => {
 };
 generateCards();
 
+}
 
 
-
+// create function variables
 let clickCards = document.querySelectorAll('.card__item');
 let cardFront = document.querySelectorAll('.front');
 let cardBack = document.querySelectorAll('.back');
@@ -117,6 +127,7 @@ function flipCard() {
 
  }
 
+ //Starts the timer
  function startTimer(matches) {
 	 if (!executed) {
 		executed = true;
@@ -124,17 +135,10 @@ function flipCard() {
 
 	 }else if (matches === cardsArray.length){
 		 timer = clearInterval(timer);
-
-
-
-
-
 	 }
-
-
-
  }
 
+// creates the timer
 function timerHandeler () {
 	sec++;
 	if (sec == 60) {
@@ -149,6 +153,7 @@ function timerHandeler () {
 
 }
 
+// creates the timer
 function displayTime () {
 	let emptySec;
 	let emptyMin;
@@ -170,15 +175,9 @@ function displayTime () {
 
 		seconds.innerHTML = emptySec;
 		minutes.innerHTML = emptyMin;
-
-
 	}
 
-
-
-
-
-
+// checks for matches
  function checkForMatch() {
 	if (firstCard.dataset.cardId === secondCard.dataset.cardId) {
 		matches++;
@@ -186,32 +185,22 @@ function displayTime () {
 		pointsCounter()
 		startTimer(matches)
 
-
 		return;
 	}
 
 	unflipCards();
 	pointsCounter()
 
-
 }
 
-
-
-
-
-
+// disables cards that were a match
 function disableCards() {
 	firstCard.removeEventListener('click', flipCard);
 	secondCard.removeEventListener('click', flipCard);
 	resetBoard();
 }
 
-
-
-
-
-
+// counter for total tries
 function pointsCounter(){
 	setTimeout(() => {
 		let niceNumber;
@@ -227,13 +216,7 @@ function pointsCounter(){
 
 }
 
-
-
-
-
-
-
-
+// unflips card that were not a match
 function unflipCards() {
 	lockBoard = true;
 	setTimeout(() => {
@@ -244,12 +227,7 @@ function unflipCards() {
 	}, 1000);
 }
 
-
-
-
-
-
-
+// creates a try
 function resetBoard() {
 	[hasFlippedCard, lockBoard] = [false, false];
 	[firstCard, secondCard] = [null, null];
