@@ -7,36 +7,58 @@
 	<link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="master.css">
 	<link rel="stylesheet" href="media.css">
+	<link rel="stylesheet" href="header.css">
+	<link rel="stylesheet" href="cards.css">
+	<link rel="stylesheet" href="modals.css">
 	<title>Document</title>
 </head>
 <body>
+		<!-- contains all content in the header -->
 	<header class="headerContainer">
+			<!-- container for the clock and score -->
 		<div class="points-clock-container">
+				<!-- clock -->
 			<div id="MyClockDisplay" class="clock"><span id="minutes">00</span>:<span id="seconds">00</span></div>
+				<!-- points -->
 			<div class="points">00</div>
-		</div>
 
+		</div>
+			<!-- nba logo -->
 		<img src="https://www.stickpng.com/assets/images/58428defa6515b1e0ad75ab4.png" alt="">
 
 
 	</header>
-	<div class="body-container">
-			<div class="start-modal" id="start-modal">
-				<div class="button"><h3 class="start-game-h3">Start Game</h3></div>
+
+				<!-- contains all content in the body exept header -->
+			<div class="body-container">
+
+					<!-- start game modal -->
+				<div class="modal-start" id="start-modal">
+
+					<div class="button" id="button-start"><h3 class="game-h3">Start Game</h3></div>
+
 				</div>
-			<div class="overlay-start-active" id="overlay"></div>
 
-		<div class="container">
-
+				<div class="overlay-start-active" id="overlay"></div>
 
 
+					<!-- container for the cards -->
+				<div class="container"></div>
 
 
+					<!-- restart modal / shows final score and time -->
+				<div class="modal-restart non-modal-reset" id="restart-modal">
 
+				<div class="clock clock-reset"><span id="restartMin">00</span>:<span id="restartSec">00</span></div>
 
-		</div>
+				<div class="points-restart " id="points-restart">00</div>
 
-	</div>
-<script src="script.js"></script>
-</body>
+				<div class="button restart-button " id="button-restart"><h3 class="game-h3">Reset Game</h3></div>
+
+				</div>
+				<div class="overlay-restart-active" id="overlay"></div>
+
+			</div>
+		<script src="script.js"></script>
+	</body>
 </html>
