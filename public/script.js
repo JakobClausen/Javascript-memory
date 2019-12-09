@@ -178,7 +178,7 @@ function startGame() {
 		if (!executed) {
 			executed = true;
 			timer = setInterval(timerHandeler, 1000);
-		} else if (matches === 1) {
+		} else if (matches === cardsArray.length) {
 			timer = clearInterval(timer);
 			resetGame(emptySec, emptyMin, counter);
 		}
