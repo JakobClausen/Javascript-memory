@@ -1,0 +1,122 @@
+/* start modal - start */
+.modal-start {
+	width: 400px;
+	height: 300px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transition: 500ms ease-in-out;
+	transform: translate(-50%, -50%) scale(1);
+	border-radius: 7%;
+	z-index: 10;
+	background-color: #212322;
+	-webkit-box-shadow: 0px 0px 38px 7px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 38px 7px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 38px 7px rgba(0, 0, 0, 0.75);
+}
+
+.active-start {
+	transform: translate(-50%, -50%) scale(0);
+}
+
+.button {
+	width: 120px;
+	height: 120px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 7%;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.game-h3 {
+	margin-top: 13px;
+	padding: 0;
+	font-family: horrible jefe;
+	color: #006cb8;
+	font-size: 40px;
+	letter-spacing: 1.3px;
+	text-align: center;
+	top: 50%;
+}
+
+.overlay-start-active {
+	position: fixed;
+	opacity: 1;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgb(0, 0, 0, 0.5);
+	pointer-events: none;
+}
+
+.overlay-start-not-active {
+	opacity: 0;
+	pointer-events: all;
+	transition: 500ms ease-in-out;
+}
+
+/* start modal - end */
+
+/* reset modal - start */
+
+.modal-restart {
+	width: 500px;
+	height: 400px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transition: 500ms ease-in-out;
+	border-radius: 7%;
+	z-index: 10;
+	background-color: #212322;
+	-webkit-box-shadow: 0px 0px 38px 7px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 38px 7px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 38px 7px rgba(0, 0, 0, 0.75);
+}
+
+.non-modal-reset {
+	transform: translate(-50%, -50%) scale(0);
+}
+.modal-active-reset {
+	transform: translate(-50%, -50%) scale(1);
+}
+.overlay-restart-active {
+	position: fixed;
+	opacity: 0;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgb(0, 0, 0, 0.5);
+	pointer-events: none;
+}
+
+.overlay-restart-not-active {
+	opacity: 1;
+	pointer-events: all;
+	transition: 500ms ease-in-out;
+	z-index: 3;
+}
+
+.clock-reset {
+	margin-top: 5%;
+	font-size: 83px;
+}
+
+.points-restart {
+	color: #d14124;
+	font-size: 90px;
+	font-family: digital-7;
+	letter-spacing: 10px;
+	text-shadow: 0 0 5px #d14124, 0 0 0px #d14124, 0 0 45px #d14124,
+		-7px -4px 4px rgba(206, 89, 55, 0);
+	text-align: center;
+}
+
+.restart-button {
+	margin-top: 100px;
+}

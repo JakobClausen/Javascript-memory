@@ -1,0 +1,65 @@
+.card__item {
+	width: 120px;
+	height: 166px;
+	margin: auto;
+	cursor: pointer;
+	-webkit-transition: -webkit-transform 1s;
+	-moz-transition: -moz-transform 1s;
+	-o-transition: -o-transform 1s;
+	transition: transform 1s;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform-origin: 50% 50%;
+	-webkit-box-shadow: 0px 0px 45px -1px rgba(0, 0, 0, 0.69);
+	-moz-box-shadow: 0px 0px 45px -1px rgba(0, 0, 0, 0.69);
+	box-shadow: 0px 0px 45px -1px rgba(0, 0, 0, 0.69);
+}
+
+.card__item div {
+	position: absolute;
+	width: 120px;
+	height: 166px;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.front {
+	width: 150px;
+	height: 150px;
+}
+
+.front img {
+	width: 120px;
+	background-size: cover;
+	transition: all 0.1s ease-in-out;
+}
+
+.front img:hover {
+	transform: scale(1.1);
+}
+
+.back {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+/* disables click on cards */
+.disbleCardClick {
+	pointer-events: none;
+}
+
+.back img {
+	width: 120px;
+	height: 166px;
+	background-size: cover;
+}
+
+.card__item.flipped {
+	transform: rotateY(180deg);
+}

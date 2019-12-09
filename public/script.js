@@ -68,9 +68,11 @@ const cardsArray = [
 // Element selector
 const container = document.querySelector(".container");
 const duplicatedArray = cardsArray.concat(cardsArray);
-const startGameButton = document.querySelector(".button");
-const startModal = document.querySelector(".start-modal");
+const startGameButton = document.querySelector("#button-start");
+const restartGameButton = document.querySelector("#button-restart");
+const startModal = document.querySelector(".modal-start");
 const overlay = document.querySelector("#overlay");
+const restartModal = document.querySelector(".modal-restart");
 
 // converts a string to html div
 const stringToHTML = str => {
@@ -145,7 +147,13 @@ function startGame() {
 	let timer;
 	let sec = 0;
 	let min = 0;
-	let hour = 0;
+	let seconds = document.getElementById("seconds");
+	let minutes = document.getElementById("minutes");
+	let secondsRestart = document.getElementById("restartSec");
+	let minutesRestart = document.getElementById("restartMin");
+	let pointsRestart = document.getElementById("points-restart");
+	let emptySec;
+	let emptyMin;
 
 	function flipCard() {
 		if (lockBoard) return;
@@ -166,12 +174,13 @@ function startGame() {
 	}
 
 	//Starts the timer
-	function startTimer(matches) {
+	function startTimer(matches, counter) {
 		if (!executed) {
 			executed = true;
 			timer = setInterval(timerHandeler, 1000);
-		} else if (matches === cardsArray.length) {
+		} else if (matches === 1) {
 			timer = clearInterval(timer);
+			resetGame(emptySec, emptyMin, counter);
 		}
 	}
 
@@ -182,20 +191,12 @@ function startGame() {
 			sec = 0;
 			min++;
 		}
-		if (min == 60) {
-			min = 0;
-			hour++;
-		}
+
 		displayTime();
 	}
 
 	// creates the timer
 	function displayTime() {
-		let emptySec;
-		let emptyMin;
-		let seconds = document.getElementById("seconds");
-		let minutes = document.getElementById("minutes");
-
 		if (sec < 10) {
 			emptySec = "0" + sec;
 		} else {
@@ -218,7 +219,7 @@ function startGame() {
 			matches++;
 			disableCards();
 			pointsCounter();
-			startTimer(matches);
+			startTimer(matches, counter);
 
 			return;
 		}
@@ -264,6 +265,36 @@ function startGame() {
 		[hasFlippedCard, lockBoard] = [false, false];
 		[firstCard, secondCard] = [null, null];
 	}
+
+	function resetGame(emptySec, emptyMin, counter) {
+		overlay.classList.add("overlay-restart-not-active");
+		restartModal.classList.add("modal-active-reset");
+		counter++;
+		pointsRestart.innerHTML = counter;
+		secondsRestart.innerHTML = emptySec;
+		minutesRestart.innerHTML = emptyMin;
+	}
+	restartGameButton.addEventListener("click", () => {
+		setTimeout((emptySec, emptyMin) => {
+			restartModal.classList.remove("modal-active-reset");
+			overlay.classList.add("overlay-start-not-active");
+			overlay.classList.remove("overlay-restart-not-active");
+			emptySec;
+			emptyMin;
+			countern = 0;
+			niceNumber = "00";
+			sec = "00";
+			min = "00";
+			seconds.innerHTML = sec;
+			minutes.innerHTML = min;
+			counterDiv.innerHTML = niceNumber;
+			container.innerHTML = "";
+		}, 150);
+
+		setTimeout(() => {
+			startGame();
+		}, 500);
+	});
 
 	clickCards.forEach(card => card.addEventListener("click", flipCard));
 }

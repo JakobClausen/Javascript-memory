@@ -1,0 +1,39 @@
+.headerContainer {
+	width: 100%;
+	height: 120px;
+	background-color: #212322;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.headerContainer img {
+	width: 150px;
+}
+
+.points-clock-container {
+	display: grid;
+	grid-column: auto;
+	position: absolute;
+	left: 25%;
+}
+
+.points {
+	color: #d14124;
+	font-size: 64px;
+	font-family: digital-7;
+	letter-spacing: 10px;
+	text-shadow: 0 0 5px #d14124, 0 0 0px #d14124, 0 0 45px #d14124,
+		-7px -4px 4px rgba(206, 89, 55, 0);
+	text-align: center;
+}
+
+.clock {
+	text-align: center;
+	color: #fcd757;
+	font-size: 23px;
+	font-family: digital-7;
+	letter-spacing: 7px;
+	text-shadow: 0 0 5px #fff, 0 0 0px #fcd757, 0 0 45px #fcd757,
+		-7px -4px 4px rgba(206, 89, 55, 0);
+}
