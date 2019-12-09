@@ -1,68 +1,54 @@
-body{
-
+body {
 	margin: 0;
 	padding: 0;
 }
 
-.headerContainer{
+.headerContainer {
 	width: 100%;
 	height: 120px;
 	background-color: #212322;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-
-
 }
 
-
-
-.headerContainer img{
+.headerContainer img {
 	width: 150px;
-
-
 }
 
 .points-clock-container {
-display: grid;
-grid-column: auto;
-position: absolute;
-left: 25%;
+	display: grid;
+	grid-column: auto;
+	position: absolute;
+	left: 25%;
 }
 
 .points {
-	color: #D14124;
+	color: #d14124;
 	font-size: 64px;
 	font-family: digital-7;
 	letter-spacing: 10px;
-	text-shadow: 0 0 5px #D14124, 0 0 0px #D14124, 0 0 45px #D14124, -7px -4px 4px rgba(206,89,55,0);
+	text-shadow: 0 0 5px #d14124, 0 0 0px #d14124, 0 0 45px #d14124,
+		-7px -4px 4px rgba(206, 89, 55, 0);
 	text-align: center;
-
 }
-
-
 
 .clock {
 	text-align: center;
-	color: #FCD757;
+	color: #fcd757;
 	font-size: 23px;
 	font-family: digital-7;
 	letter-spacing: 7px;
-	text-shadow: 0 0 5px #FFF, 0 0 0px #FCD757, 0 0 45px #FCD757, -7px -4px 4px rgba(206,89,55,0);
-
-
+	text-shadow: 0 0 5px #fff, 0 0 0px #fcd757, 0 0 45px #fcd757,
+		-7px -4px 4px rgba(206, 89, 55, 0);
 }
-.body-container{
-		width: 100%;
-		height: calc(100vh - 120px);
-		background-image: url(https://peelandstickwallpapermurals.com/wp-content/uploads/2017/11/58655337.jpg);
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-
-
-
+.body-container {
+	width: 100%;
+	height: calc(100vh - 120px);
+	background-image: url(https://peelandstickwallpapermurals.com/wp-content/uploads/2017/11/58655337.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .container {
@@ -73,15 +59,13 @@ left: 25%;
 	grid-template-rows: repeat(3, 205px);
 	margin: auto;
 	perspective: 1000px;
-
-
-
 }
 
-.card__item{
+.card__item {
 	width: 120px;
 	height: 166px;
 	margin: auto;
+	cursor: pointer;
 	-webkit-transition: -webkit-transform 1s;
 	-moz-transition: -moz-transform 1s;
 	-o-transition: -o-transform 1s;
@@ -91,14 +75,12 @@ left: 25%;
 	-o-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	-webkit-transform-origin: 50% 50%;
-	-webkit-box-shadow: 0px 0px 45px -1px rgba(0,0,0,0.69);
-	-moz-box-shadow: 0px 0px 45px -1px rgba(0,0,0,0.69);
-	box-shadow: 0px 0px 45px -1px rgba(0,0,0,0.69);
-
-
+	-webkit-box-shadow: 0px 0px 45px -1px rgba(0, 0, 0, 0.69);
+	-moz-box-shadow: 0px 0px 45px -1px rgba(0, 0, 0, 0.69);
+	box-shadow: 0px 0px 45px -1px rgba(0, 0, 0, 0.69);
 }
 
-.card__item div{
+.card__item div {
 	position: absolute;
 	width: 120px;
 	height: 166px;
@@ -108,31 +90,26 @@ left: 25%;
 	backface-visibility: hidden;
 }
 
-.front{
+.front {
 	width: 150px;
 	height: 150px;
-
-
 }
 
-.front img{
+.front img {
 	width: 120px;
 	background-size: cover;
 	transition: all 0.1s ease-in-out;
-
 }
 
-.front img:hover { transform: scale(1.1); }
-
+.front img:hover {
+	transform: scale(1.1);
+}
 
 .back {
-	-webkit-transform: rotateY( 180deg );
-	-moz-transform: rotateY( 180deg );
-	-o-transform: rotateY( 180deg );
-	transform: rotateY( 180deg );
-
-
-
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
 }
 
 /* disables click on cards */
@@ -140,17 +117,71 @@ left: 25%;
 	pointer-events: none;
 }
 
-.back img{
+.back img {
 	width: 120px;
 	height: 166px;
 	background-size: cover;
-
 }
 
 .card__item.flipped {
-	transform: rotateY( 180deg );
+	transform: rotateY(180deg);
 }
 
+.start-modal {
+	width: 400px;
+	height: 300px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transition: 500ms ease-in-out;
+	transform: translate(-50%, -50%) scale(1);
+	border-radius: 7%;
+	z-index: 10;
+	background-color: #212322;
+	-webkit-box-shadow: 0px 0px 38px 7px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 38px 7px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 38px 7px rgba(0, 0, 0, 0.75);
+}
+.active-start {
+	transform: translate(-50%, -50%) scale(0);
+}
 
+.button {
+	width: 120px;
+	height: 120px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 7%;
+	background-color: #fff;
+	cursor: pointer;
+}
 
+.start-game-h3 {
+	margin-top: 13px;
+	padding: 0;
+	font-family: horrible jefe;
+	color: #006cb8;
+	font-size: 40px;
+	letter-spacing: 1.3px;
+	text-align: center;
+	top: 50%;
+}
 
+.overlay-start-active {
+	position: fixed;
+	opacity: 1;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgb(0, 0, 0, 0.5);
+	pointer-events: none;
+}
+
+.overlay-start-not-active {
+	opacity: 0;
+	pointer-events: all;
+	transition: 500ms ease-in-out;
+}
