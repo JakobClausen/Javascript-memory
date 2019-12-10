@@ -1,34 +1,16 @@
-
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1500px) {
 	.container {
-
-		grid-template-rows: repeat(3, 220px);
-	}
-
-}
-
- @media only screen and (min-width: 1500px) {
-	.container {
-
 		grid-template-rows: repeat(3, 278px);
-
-
 	}
 
-	.front img{
+	.front img {
 		width: 150px;
-
 	}
-
 
 	.card__item,
 	.back img,
-	.card__item div{
+	.card__item div {
 		width: 150px;
 		height: 208px;
-
 	}
-
-
-
 }

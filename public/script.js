@@ -94,6 +94,7 @@ const createBackCard = imgFlipped => {
 	return `<div class="back"><img src="${imgFlipped}"></div>`;
 };
 
+// click event for the startbutton
 startGameButton.addEventListener("click", () => {
 	setTimeout(() => {
 		startModal.classList.add("active-start");
@@ -105,6 +106,7 @@ startGameButton.addEventListener("click", () => {
 	}, 500);
 });
 
+// function for starting the game
 function startGame() {
 	// Shuffles the cards
 	const shuffle = array => {
@@ -133,20 +135,12 @@ function startGame() {
 			cardContainer.appendChild(stringToHTML(backCard));
 		});
 	};
+
 	generateCards();
 
 	// create function variables
 	let clickCards = document.querySelectorAll(".card__item");
 	let counterDiv = document.querySelector(".points");
-	let matches = 0;
-	let counter = 0;
-	let hasFlippedCard = false;
-	let lockBoard = false;
-	let firstCard, secondCard;
-	let executed = false;
-	let timer;
-	let sec = 0;
-	let min = 0;
 	let seconds = document.getElementById("seconds");
 	let minutes = document.getElementById("minutes");
 	let secondsRestart = document.getElementById("restartSec");
@@ -154,7 +148,17 @@ function startGame() {
 	let pointsRestart = document.getElementById("points-restart");
 	let emptySec;
 	let emptyMin;
+	let sec = 0;
+	let min = 0;
+	let matches = 0;
+	let counter = 0;
+	let hasFlippedCard = false;
+	let lockBoard = false;
+	let firstCard, secondCard;
+	let executed = false;
+	let timer;
 
+	// flips the card
 	function flipCard() {
 		if (lockBoard) return;
 		if (this === firstCard) return;
@@ -266,6 +270,7 @@ function startGame() {
 		[firstCard, secondCard] = [null, null];
 	}
 
+	// resets the game
 	function resetGame(emptySec, emptyMin, counter) {
 		overlay.classList.add("overlay-restart-not-active");
 		restartModal.classList.add("modal-active-reset");
@@ -274,6 +279,8 @@ function startGame() {
 		secondsRestart.innerHTML = emptySec;
 		minutesRestart.innerHTML = emptyMin;
 	}
+
+	// click event for the restart button
 	restartGameButton.addEventListener("click", () => {
 		setTimeout((emptySec, emptyMin) => {
 			restartModal.classList.remove("modal-active-reset");
