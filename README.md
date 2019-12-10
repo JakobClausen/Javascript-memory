@@ -3,9 +3,7 @@ Javascript memory project for school
 
 <h1 align="center">
     <br>
-    <img src="https://cdn.nba.net/nba-drupal-prod/2019-09/SEO-image-NBA-logoman.jpg" alt="NBA" width="200">
-    <br>
-        Rosa Bandet-memory
+    <img src="https://cdn.nba.net/nba-drupal-prod/2019-09/SEO-image-NBA-logoman.jpg" alt="NBA" width="800">
     <br>
 </h1>
 
