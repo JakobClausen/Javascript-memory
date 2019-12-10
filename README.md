@@ -9,9 +9,9 @@ Javascript memory project for school
 
 ## Coded with
 
-# HTML
-# CSS
-# Javascript
+- HTML
+- CSS
+- Javascript
 
 ## Installation
 1. Clone down the project to your computer
