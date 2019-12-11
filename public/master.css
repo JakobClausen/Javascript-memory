@@ -16,26 +16,7 @@ body {
 	height: auto;
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
-	grid-template-rows: repeat(3, 205px);
-	margin: auto;
-	perspective: 1000px;
-}
-
-.body-container {
-	width: 100%;
-	height: calc(100vh - 120px);
-	background-image: url(https://peelandstickwallpapermurals.com/wp-content/uploads/2017/11/58655337.jpg);
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-}
-
-.container {
-	width: 85%;
-	height: auto;
-	display: grid;
-	grid-template-columns: repeat(6, 1fr);
-	grid-template-rows: repeat(3, 205px);
+	grid-template-rows: repeat(3, 220px);
 	margin: auto;
 	perspective: 1000px;
 }
