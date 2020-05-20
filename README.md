@@ -1,11 +1,17 @@
 # NBA-memory
 Javascript memory project for school
 
-<h1 align="center">
-    <br>
-    <img src="https://cdn.nba.net/nba-drupal-prod/2019-09/SEO-image-NBA-logoman.jpg" alt="NBA" width="800">
-    <br>
-</h1>
+<p align="center">
+<img src="/img/one.png" alt="memory timer by Jakob Clausen" width="738">
+</p>     
+     
+<p align="center">         
+ <img src="/img/two.png" alt="memory timer by Jakob Clausen" width="738">
+</p>
+
+<p align="center">
+<img src="/img/three.png" alt="memory timer by Jakob Clausen" width="738">
+</p>   
 
 ## Coded with
 
